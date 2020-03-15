@@ -1,5 +1,11 @@
 const { ipcRenderer } = require("electron");
 
+ipcRenderer.on('resetvals', () => {
+    $('#authip').val('');
+    $('#chatip').val('');
+    $('#username').val('');
+});
+
 $('.form-control').click(() => {
     $('#authip').removeClass('red-border');
     $('#chatip').removeClass('red-border');

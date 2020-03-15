@@ -42,6 +42,7 @@ function createWindow() {
 
     // win2.setMenu(null);
     win2.loadFile('public/chat.html');
+    win2.setTitle('Not connected');
     win2.hide();
 
     win2.webContents.once('dom-ready', () => {win2ready=true});
@@ -56,7 +57,9 @@ function createWindow() {
         data.auth=null;
         data.chatip="127.0.0.1";
         data.authip="127.0.0.1";
-        data.username="Test";
+        data.username="Test"
+        win.webContents.send('resetvals');
+        win2.setTitle('Not connected');
     });
 }
 
@@ -112,6 +115,7 @@ ipcMain.on('connect', (e, authip, chatip, username) => {
     win.hide();
     win2.show();
     connect(authip, chatip, username);
+    win2.setTitle(`Connected to auth server ${authip}, chat server ${chatip}`);
 });
 
 app.whenReady().then(createWindow);
