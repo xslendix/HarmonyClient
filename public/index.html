@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony client</title>
+
+    <link rel="stylesheet" href="libs/bootstrap.min.css">
+    <link rel="stylesheet" href="login.css">
+
+    <link rel="stylesheet" href="libs/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="libs/jquery-ui.structure.min.css">
+
+</head>
+<body class="bg-dark text-white">
+    
+    <div class="navbar justify-content-end">
+        <button class="btn btn-dark align-right" id="exitbtn" onclick="require('electron').ipcRenderer.send('ExitApp')">Exit</button>
+    </div>
+
+    <h1 class="text-center">Connect to a server</h1>
+    <div class="h-100 w-100 container-fluid align-middle">
+
+        <div class="card bg-dark-2" style="width: 48vw; margin: 20vh auto">
+            <div class="card-body">
+                <div class="form-group">
+                    <input class="form-control bg-dark text-white no-border-1px" type="text" id="authip" placeholder="Auth server IP" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control bg-dark text-white no-border-1px" type="text" id="chatip" placeholder="Chat server IP" required>
+                </div>
+                <div class="form-group">
+                    <input class="form-control bg-dark text-white no-border-1px" type="text" id="username" placeholder="Username" required>
+                </div>
+                <div class="form-group" style="margin: 0 0;">
+                    <button class="form-control btn btn-primary", id="connectbtn">Connect</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        $ = require('jquery');
+        jQuery = require('jquery');
+    </script>
+
+    <script src="libs/popper.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script>
+
+    <script src="libs/jquery-ui.min.js"></script>
+    <script src="login.js"></script>
+
+</body>
+</html>
